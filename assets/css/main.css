@@ -1,0 +1,9 @@
+.hide-post-content {
+  height: 300px;
+  overflow: hidden;
+}
+
+.btn-article {
+  margin-top: 20px;
+  width:100%;
+}
