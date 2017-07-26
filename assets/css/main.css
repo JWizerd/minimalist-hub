@@ -1,5 +1,18 @@
+/* =====
+FONTS
+===== */
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,400i,700');
+.roboto {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+
+/* =====
+BASE
+===== */
+
 .hide-post-content {
-  height: 30vh;
+  height: 250px;
   overflow: hidden;
 }
 
@@ -31,4 +44,12 @@ body {
 
 header {
   box-shadow: 0px 0px 9px black;
+}
+
+/* =====
+ZEN HABITS
+===== */
+
+.zen-habits {
+  font-family: 'Roboto Condensed', sans-serif; 
 }
