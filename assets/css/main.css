@@ -11,6 +11,18 @@ FONTS
 BASE
 ===== */
 
+button {
+  background: transparent;
+  border: none;
+}
+
+button:focus, 
+button:active {
+  border:none;
+  outline:none;
+  box-shadow:none;
+}
+
 .hide-post-content {
   height: 250px;
   overflow: hidden;
@@ -26,12 +38,7 @@ a {
 }
 
 body {
-  background: 
-/*    linear-gradient(
-      rgba(255, 255, 255, 0.2), 
-      rgba(255, 255, 255, 0.2)
-    ),*/
-    url('../img/bg-body-forest.jpg');
+  background: url('../img/bg-body-forest.jpg');
   background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -46,10 +53,80 @@ header {
   box-shadow: 0px 0px 9px black;
 }
 
+main {
+  margin-bottom: 60px;
+}
+
 /* =====
 ZEN HABITS
 ===== */
 
 .zen-habits {
   font-family: 'Roboto Condensed', sans-serif; 
+}
+
+/* =====
+FOOTER
+===== */
+
+.footer {
+  background: #222;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  height: 50px;
+}
+
+.footer h2 {
+  color: white;
+  text-transform: uppercase;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #3c763d;
+  margin-bottom: 30px;
+}
+
+.add-widget {
+  font-size: 60px;
+  color: bisque;
+  position: relative;
+  top: -27px;
+  transition: ease all .2s;
+  position: relative;
+  z-index: 2;
+  background: #222;
+  border-radius: 50%;
+}
+
+.add-widget:hover {
+  color: #3c763d;
+}
+
+/* JQUERY CLASSES */
+
+.rotate-icon {
+  transform: rotate(45deg);
+  color: #3c763d;
+}
+
+.show-form {
+  display: block !important;
+  position: relative;
+  top: -479px;
+}
+
+.widget-form-wrapper {
+  background: #222;
+  padding: 60px 40px;
+  border: 4px solid #3c763d;
+  display: none;
+}
+
+form {
+  text-align: center;
+}
+
+.form-control {
+  border-radius: 20px;
+  margin-bottom: 30px;
 }

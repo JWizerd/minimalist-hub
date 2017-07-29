@@ -27,7 +27,17 @@ function backgroundSlideShow(wallpaperCount) {
   }, 8000) 
 }
 
+function addWidgetForm() {
+  $('.add-widget').on('click', function() {
+    console.log('working');
+    $this = $(this);
+    $this.toggleClass('rotate-icon');
+    $('.widget-form-wrapper').toggleClass('show-form');
+  }) 
+}
+
 $(document).ready(function(){
   togglePostContent()
+  addWidgetForm()
   // backgroundSlideShow(3);
 })
