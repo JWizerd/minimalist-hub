@@ -3,11 +3,10 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-6 col-sm-offset-3 text-center widget-form-wrapper">
-          <h2>Add a New Widget</h2>
+          <h2>Add a New RSS Feed</h2>
           <form action="<? $_SERVER['PHP_SELF']; ?>" method="post">
             <div class="form-group">
-              <input type="text" class="form-control" name="url" placeholder="Enter URL">
-              <input type="text" class="form-control" name="element" placeholder="Enter post content encapsulating element i.e. .post body main etc.">
+              <input type="text" class="form-control" name="url" placeholder="Enter URL to RSS Feed">
               <input type="submit" class="btn-success form-control" name="add_webscraper_widget" value="Add Widget">
             </div>
           </form>

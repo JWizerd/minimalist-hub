@@ -1,17 +1,20 @@
 <?
-  require('inc/simple_html_dom.php');
-
-  function return_html_from_webpage($element, $url) {
+  function rss_parser($url) {
     // Retrieve the DOM from a given URL
-    $html = file_get_html($url);
-    $posts = $html->find($element);
-    return $posts;
+    $rss = new DOMDocument();
+    $rss->load($url);
+    $feed = [];
+    foreach ($rss->getElementsByTagName('item') as $node) {
+      $item = [
+              'title' => $node->getElementsByTagName('title')->item(0)->nodeValue,
+              'content' => $node->getElementsByTagName('encoded')->item(0)->nodeValue
+              ];
+      array_push($feed, $item);
+    }
+    return $feed[0];
   }
 
   if (isset($_POST['add_webscraper_widget'])) {
     $url = $_POST['url'];
-    $element = $_POST['element'];
-    $the_posts = return_html_from_webpage($element, $url); 
+    $latest_post = rss_parser($url);
   }
-
-
