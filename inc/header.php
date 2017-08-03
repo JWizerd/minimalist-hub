@@ -1,4 +1,5 @@
 <? require('inc/head.php'); ?>
+
 <header>
   <div class="jumbotron">
     <div class="container">

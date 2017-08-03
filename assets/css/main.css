@@ -57,6 +57,23 @@ main {
   margin-bottom: 60px;
 }
 
+a {
+  transition: ease all .4s;
+  color: orange;
+}
+
+.error {
+  color: red !important;
+}
+
+.error a {
+  color: orange;
+}
+
+.error a:hover {
+  color: purple;
+}
+
 /* =====
 ZEN HABITS
 ===== */
