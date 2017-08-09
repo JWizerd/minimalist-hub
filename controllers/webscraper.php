@@ -1,5 +1,9 @@
 <?
+
+require('./models/db.php');
+
 class RSS_Feed {
+
   public $url;
   public $rss;
   public $feed = [];
@@ -8,19 +12,20 @@ class RSS_Feed {
   public function __construct($url) {
     $this->url = $url;
     $this->rss_parser($this->url);
-    $this->get_latest_post($this->url);
+    $this->store_post($this->url);
   }
 
-  public function get_latest_post($url) {
+  public function store_post($url) {
    if (!empty($this->feed)) {
       $this->post_obj = $this->feed[0];
+      $this->add_post_to_db($this->post_obj);
     } else {
      false;
     } 
   }
 
   public function rss_parser($url) {
-    // using DOMObject to parse through XML encoded items
+    // using DOMDocument to parse through XML encoded items. DOMDocument is a built in php library for parsing webpages
     $dom_object = new DOMDocument();
     @$dom_object->load($url);
 
@@ -42,5 +47,18 @@ class RSS_Feed {
   public function proper_rss($dom_object) {
     return !empty($dom_object->getElementsByTagName('item'));
   }
+
+  public function add_post_to_db($post_obj) {
+    $db = new DB();
+    $stmt = $db->pdo->prepare("INSERT INTO posts (title, content) VALUES (:title, :content)");
+    $stmt->execute([$post_obj['title'], $post_obj['content']]);
+  }
+
+  public function get_all_posts() {
+    $db = new DB();
+    $posts = $db->pdo->query("SELECT title, content FROM posts");
+    return $posts;
+  }
+
 }
 

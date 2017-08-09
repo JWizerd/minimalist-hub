@@ -74,6 +74,9 @@ a {
 
 .error {
   color: red !important;
+  background-color: rgba(255,255,255,.5);
+  box-shadow: 0px 0px 9px black;
+  padding: 15px 0;
 }
 
 .error a {

@@ -4,8 +4,12 @@ function togglePostContent() {
   $post.after('<button class="btn btn-default btn-article">Read Article</button>')
   $post.addClass('hide-post-content')
 
-  $('.btn-article').on('click', function(){
-    $post.toggleClass('hide-post-content')
+  $('.btn-article').each(function(){
+    var $this = $(this);
+    $this.on('click', function(){
+      // show post content of post from 'this' btns sibling post content
+      $this.prev().toggleClass('hide-post-content')
+    })
   })
 }
 
