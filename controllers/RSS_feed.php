@@ -4,18 +4,11 @@ require('./models/db.php');
 
 class RSS_Feed {
 
-  public $url;
   public $rss;
   public $feed = [];
   public $post_obj;
 
-  public function __construct($url) {
-    $this->url = $url;
-    $this->rss_parser($this->url);
-    $this->store_post($this->url);
-  }
-
-  public function store_post($url) {
+  public function store_post() {
    if (!empty($this->feed)) {
       $this->post_obj = $this->feed[0];
       $this->add_post_to_db($this->post_obj);
@@ -24,10 +17,10 @@ class RSS_Feed {
     } 
   }
 
-  public function rss_parser($url) {
+  public function rss_parser() {
     // using DOMDocument to parse through XML encoded items. DOMDocument is a built in php library for parsing webpages
     $dom_object = new DOMDocument();
-    @$dom_object->load($url);
+    @$dom_object->load($this->url);
 
     if ($this->proper_rss($dom_object)) {
 
@@ -41,7 +34,17 @@ class RSS_Feed {
 
       }
 
+      $this->store_post();
+
     }
+  }
+
+  public function getUrl(){
+    return $this->url;
+  }
+
+  public function setUrl($url){
+    $this->url = $url;
   }
 
   public function proper_rss($dom_object) {
