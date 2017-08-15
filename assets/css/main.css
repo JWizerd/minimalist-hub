@@ -47,6 +47,18 @@ body {
 
 .well {
   background: rgba(255,255,255,.7);
+  position: relative;
+}
+
+.remove-post {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: none;
+  border: none;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 4px 10px;
 }
 
 header {
@@ -87,13 +99,7 @@ a {
   color: purple;
 }
 
-/* =====
-ZEN HABITS
-===== */
 
-.zen-habits {
-  font-family: 'Roboto Condensed', sans-serif; 
-}
 
 /* =====
 FOOTER

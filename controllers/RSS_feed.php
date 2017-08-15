@@ -26,7 +26,7 @@ class RSS_Feed {
 
       foreach ($dom_object->getElementsByTagName('item') as $node) {
         
-        $item = [
+        @$item = [
                 'title' => $node->getElementsByTagName('title')->item(0)->nodeValue,
                 'content' => $node->getElementsByTagName('encoded')->item(0)->nodeValue
                 ];
@@ -61,6 +61,12 @@ class RSS_Feed {
     $db = new DB();
     $posts = $db->pdo->query("SELECT title, content FROM posts");
     return $posts;
+  }
+
+  public static function remove_post($title) {
+    $db = new DB();
+    $stmt = $db->pdo->prepare("DELETE FROM posts WHERE title = ?");
+    $stmt->execute([$title]);
   }
 
 }
